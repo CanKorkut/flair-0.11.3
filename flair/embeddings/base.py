@@ -337,7 +337,7 @@ class TransformerEmbedding(Embeddings[Sentence]):
         zip_obj = zipfile.ZipFile(zip_data)
         with tempfile.TemporaryDirectory() as temp_dir:
             zip_obj.extractall(temp_dir)
-            return AutoTokenizer.from_pretrained(temp_dir)
+            return AutoTokenizer.from_pretrained(temp_dir, use_fast=False)
 
     def _tokenizer_bytes(self):
         with tempfile.TemporaryDirectory() as temp_dir:
