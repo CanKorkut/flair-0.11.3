@@ -682,6 +682,7 @@ class TransformerEmbedding(Embeddings[Sentence]):
             truncation=self.truncate,
             padding=True,
             return_tensors="pt",
+            use_fast=False
         )
 
         input_ids, model_kwargs = self._build_transformer_model_inputs(batch_encoding, tokenized_sentences, sentences)
