@@ -72,7 +72,7 @@ class Model(torch.nn.Module, typing.Generic[DT]):
     def _init_model_with_state_dict(cls, state, **kwargs):
         """Initialize the model from a state dictionary."""
         model = cls(**kwargs)
-
+        del state["state_dict"]["embeddings.model.embeddings.position_ids"]
         model.load_state_dict(state["state_dict"])
         return model
 
